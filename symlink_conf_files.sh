@@ -24,7 +24,7 @@ if [ -d ${CONFIG_DIR} ]; then
   create_symlink ${BASHRC} 
   create_symlink ${BASH_PROFILE} 
   create_symlink ${VIMRC} 
-  create_symlink $VIM_DIR 
+  create_symlink ${VIM_DIR} 
   create_symlink ${TMUX_CONF}
   create_symlink ${GITCONFIG}
 fi
