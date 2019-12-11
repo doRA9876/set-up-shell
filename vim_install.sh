@@ -8,6 +8,9 @@ echo "${password}" | sudo -S apt remove --purge vim vim-runtime vim-common
 echo "${password}" | sudo -S rm -rf /usr/local/share/vim
 echo "${password}" | sudo -S rm -f /usr/local/bin/vim
 
+echo "${password}" | sudo -S apt -y update
+echo "${password}" | sudo -S apt -y upgrade
+
 echo "${password}" | sudo -S apt install -y build-essential ncurses-dev lua5.2 lua5.2-dev luajit python-dev python3-dev ruby-dev
 
 cd ${DOWNLOAD_DIR}
