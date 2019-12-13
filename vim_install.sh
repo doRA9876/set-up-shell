@@ -1,8 +1,9 @@
 #!/bin/bash
-DOWNLOAD_DIR=
+
+read -p "download directory: " DOWNLOAD_DIR
 
 if [ -z "${DOWNLOAD_DIR}" ]; then
-  echo "You need to set DOWNLOAD_DIR in the program."
+  echo "You need to enter the correct directory."
   exit 1
 fi
 
@@ -24,11 +25,17 @@ echo "${password}" | sudo -S apt -y upgrade
 echo "${password}" | sudo -S apt install -y build-essential ncurses-dev lua5.2 lua5.2-dev luajit python-dev python3-dev ruby-dev
 
 cd ${DOWNLOAD_DIR}
-echo "${password}" | sudo -S git clone --depth 1 https://github.com/vim/vim
+
+if [ -d ${DOWNLOAD_DIR}/vim ]; then
+  echo "${password}" | sudo -S git pull
+else
+  echo "${password}" | sudo -S git clone --depth 1 https://github.com/vim/vim
+fi
+
 cd vim
 
 cd src
-make distclean
+echo "{password}" | sudo -S make distclean
 cd ..
 
 echo "${password}" | sudo -S ./configure --with-features=huge --enable-multibyte --enable-luainterp=dynamic --enable-gpm --enable-cscope --enable-fontset --enable-fail-if-missing --prefix=/usr/local --enable-pythoninterp=dynamic --enable-python3interp=dynamic --enable-rubyinterp=dynamic
