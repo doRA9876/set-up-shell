@@ -12,7 +12,7 @@ CONFIG_DIR=
 BASHRC=${CONFIG_DIR}/bash/.bashrc
 BASH_PROFILE=${CONFIG_DIR}/bash/.bash_profile
 
-VIMRC=${CONFIG_DIR}/vim/.vimrc
+# vimrcはvimディレクトリの中に格納
 VIM_DIR=${CONFIG_DIR}/vim/.vim
 
 TMUX_CONF=${CONFIG_DIR}/others/.tmux.conf
@@ -23,7 +23,6 @@ cd ~/
 if [ -d ${CONFIG_DIR} ]; then
   create_symlink ${BASHRC} 
   create_symlink ${BASH_PROFILE} 
-  create_symlink ${VIMRC} 
   create_symlink ${VIM_DIR} 
   create_symlink ${TMUX_CONF}
   create_symlink ${GITCONFIG}
