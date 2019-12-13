@@ -1,6 +1,16 @@
 #!/bin/bash
 DOWNLOAD_DIR=
 
+if [ -z "${DOWNLOAD_DIR}" ]; then
+  echo "You need to set DOWNLOAD_DIR in the program."
+  exit 1
+fi
+
+if [ ! -d ${DOWNLOAD_DIR} ]; then
+  echo "Specified directory does not exist."
+  exit 1
+fi
+
 read -sp "Password: " password
 
 echo "${password}" | sudo -S apt remove --purge vim vim-runtime vim-common
