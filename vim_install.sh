@@ -3,7 +3,7 @@
 read -p "download directory: " DOWNLOAD_DIR
 
 if [ -z "${DOWNLOAD_DIR}" ]; then
-  echo "You need to enter the correct directory."
+  echo "You need to enter the path to the correct directory."
   exit 1
 fi
 
