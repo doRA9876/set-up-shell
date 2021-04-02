@@ -2,7 +2,7 @@
 
 create_symlink () {
   if [ -e $1 ] || [ -d $1 ]; then
-    ln -f -s $1
+    ln -i -s $1
     echo "created a symbolic link to $1"
   fi
 }
